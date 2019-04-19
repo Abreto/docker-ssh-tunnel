@@ -13,10 +13,4 @@ if [ "$*" = "" ]; then
     exit 1
 fi
 
-echo $SSH_TUNNELOPTS
-
-mkdir -p ~/.ssh
-
-ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
-
-ssh -p $SSH_PORT -i $SSH_ID_FILE -gnNT -o GatewayPorts=true $* $SSH_USER@$SSH_HOST
+ssh -p $SSH_PORT -i $SSH_ID_FILE -gnNT -o "StrictHostKeyChecking=false" -o GatewayPorts=true $* $SSH_USER@$SSH_HOST
