@@ -19,4 +19,4 @@ mkdir -p ~/.ssh
 
 ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
 
-ssh -p $SSH_PORT -i $SSH_ID_FILE -gnT -o GatewayPorts=true $* $SSH_USER@$SSH_HOST $SSH_EXECUTE
+ssh -p $SSH_PORT -i $SSH_ID_FILE -gnT -o GatewayPorts=true $* $SSH_USER@$SSH_HOST "$SSH_EXECUTE"
