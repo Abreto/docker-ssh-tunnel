@@ -13,4 +13,6 @@ if [ "$*" = "" ]; then
     exit 1
 fi
 
-ssh -p $SSH_PORT -i $SSH_ID_FILE -gnNT -o "StrictHostKeyChecking=false" -o GatewayPorts=true $* $SSH_USER@$SSH_HOST
+while true; do
+    ssh -p $SSH_PORT -i $SSH_ID_FILE -gnNT -o "StrictHostKeyChecking=false" -o GatewayPorts=true "$@" $SSH_USER@$SSH_HOST
+done
